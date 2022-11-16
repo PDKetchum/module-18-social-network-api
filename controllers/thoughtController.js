@@ -8,7 +8,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Find otne thought
-  getSinglehought(req, res) {
+  getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .select("-__v")
       .then((thought) =>
@@ -41,7 +41,7 @@ module.exports = {
       });
   },
   // update a thought
-  updatethought(req, res) {
+  updateThought(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $set: req.body },
@@ -56,7 +56,7 @@ module.exports = {
     );
   },
   // Remove a thought
-  deletethought(req, res) {
+  deleteThought(req, res) {
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
       .select("-__v")
       .then((thought) =>
