@@ -1,4 +1,3 @@
-const { ObjectId } = require("mongoose").Types;
 const { User } = require("../models");
 
 module.exports = {
@@ -32,14 +31,15 @@ module.exports = {
       { $set: req.body },
       { runValidators: true, new: true }
 
-        .then((course) =>
-          !course
+        .then((user) =>
+          !user
             ? res.status(404).json({ message: "No user with this id!" })
-            : res.json(course)
+            : res.json(user)
         )
         .catch((err) => res.status(500).json(err))
     );
   },
+  // Remove a user
   deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
       .select("-__v")
@@ -50,6 +50,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+  // Add a new friend to a user's friend list
   addNewFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -61,23 +62,18 @@ module.exports = {
         : res.json(user);
     });
   },
+  // Remove a friend from a user's friend list
   deleteFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $pull: { friends: { friendsId: req.params.friendId } } },
       { runValidators: true, new: true }
     )
-      .then((application) =>
-        !application
-          ? res.status(404).json({ message: "No application with this id!" })
-          : res.json(application)
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user with this id!" })
+          : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
   },
 };
-
-// /api/users/:userId/friends/:friendId
-
-// POST to add a new friend to a user's friend list
-
-// DELETE to remove a friend from a user's friend list
