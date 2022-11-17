@@ -17,7 +17,7 @@ I can create and delete:
 ## Installation:
 
 1. `git clone git@github.com:PDKetchum/module-18-social-network-api.git`
-2. Open `server.js`
+2. Open `index.js`
 
 ## How to use:
 
