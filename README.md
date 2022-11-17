@@ -2,7 +2,7 @@
 
 ## Overview
 
-As a social media start up, to make sure my website can handle large ammounts of unstructured data, I created a API using NoSQL database.
+As a social media start up, to make sure my website can handle large amounts of unstructured data, I created a API using NoSQL database.
 
 I can view, create, update, and delete:
 
