@@ -28,4 +28,4 @@ In terminal
 
 GitHub URL: https://github.com/PDKetchum/-18-social-network-api
 
-Walk-through video:
+Walk-through video: https://drive.google.com/file/d/14QpiUC-LmOGyHMmwZzWCIXplmijFIU_M/view?usp=sharing
